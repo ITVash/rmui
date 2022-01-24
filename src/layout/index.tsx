@@ -1,6 +1,7 @@
 import {
 	AppBar,
 	Box,
+	Container,
 	Divider,
 	Drawer,
 	Grid,
@@ -65,13 +66,17 @@ let useStyle = makeStyles((theme: Theme) => ({
 			textDecoration: "none",
 			color: "#FFF",
 			fontSize: "1rem",
-			fontWeight: 500,
+			fontWeight: 300,
+			transition: "all .3s linear",
 		},
 		margin: "0 25px",
 		display: "block",
 		height: "35px",
 		"&:hover": {
 			borderBottom: "2px solid #FFB800",
+		},
+		"&:hover > a": {
+			fontWeight: 500,
 		},
 		"&:first-child": {
 			marginLeft: "0",
@@ -85,7 +90,8 @@ let useStyle = makeStyles((theme: Theme) => ({
 			textDecoration: "none",
 			color: "#FFF",
 			fontSize: "1rem",
-			fontWeight: 500,
+			fontWeight: 300,
+			transition: "all .3s linear",
 		},
 		margin: "15px auto",
 		display: "block",
@@ -94,6 +100,9 @@ let useStyle = makeStyles((theme: Theme) => ({
 		textAlign: "center",
 		"&:hover": {
 			borderBottom: "2px solid #FFB800",
+		},
+		"&:hover > a": {
+			fontWeight: 500,
 		},
 	},
 	footer: {
@@ -199,7 +208,7 @@ const Layout: React.FC = ({ children }) => {
 			<div
 				style={{
 					position: "relative",
-					height: "100%",
+					minHeight: "100%",
 					marginTop: "-64px",
 					zIndex: 0,
 				}}>
@@ -208,20 +217,76 @@ const Layout: React.FC = ({ children }) => {
 			<footer className={styles.footer}>
 				<Grid container spacing={2} className={styles.grid}>
 					<Grid item xs={12}>
-						<Grid
-							container
-							justifyContent='center'
-							spacing={4}
-							style={{ marginBottom: "0" }}>
-							<Grid item>
-								<a href='http://gorod-donetsk.com'>
-									<img src='/img/admins.svg' alt='Администрация' />{" "}
-									<Typography variant='caption' component='span'>
-										Администрация города Донецка
+						<Container>
+							<Grid
+								container
+								justifyContent='space-between'
+								spacing={4}
+								style={{ marginBottom: "0", textAlign: "center" }}>
+								<Grid item>
+									<a
+										href='http://gorod-donetsk.com'
+										style={{ display: "flex", alignItems: "center" }}>
+										<img
+											src='/img/admins.svg'
+											alt='Администрация'
+											width={26}
+											height={34}
+										/>{" "}
+										<Typography
+											variant='caption'
+											component='span'
+											style={{ fontWeight: 700, marginLeft: "10px" }}
+											color='primary'>
+											Администрация города Донецка
+										</Typography>
+									</a>
+								</Grid>
+								<Grid item>
+									<Typography
+										variant='body2'
+										component='span'
+										color='secondary'>
+										ККП администрации г. Донецка «Донецкгорсвет»
+										<br />
+										<Typography
+											variant='caption'
+											component='span'
+											color='primary'>
+											©2022
+										</Typography>
 									</Typography>
-								</a>
+								</Grid>
+								<Grid item>
+									<Typography
+										variant='h6'
+										component='span'
+										style={{ fontSize: "0.75rem", fontWeight: 400 }}
+										color='secondary'>
+										Разработка сайта{" "}
+										<a href='https://t.me/ITVash'>
+											<Typography
+												variant='h6'
+												component='span'
+												style={{ fontSize: "0.75rem", fontWeight: 400 }}
+												color='primary'>
+												Vash
+											</Typography>
+										</a>{" "}
+										&{" "}
+										<a href='https://t.me/zh3ka'>
+											<Typography
+												variant='h6'
+												component='span'
+												style={{ fontSize: "0.75rem", fontWeight: 400 }}
+												color='primary'>
+												Zh3ka
+											</Typography>
+										</a>
+									</Typography>
+								</Grid>
 							</Grid>
-						</Grid>
+						</Container>
 					</Grid>
 				</Grid>
 			</footer>

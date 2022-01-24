@@ -11,7 +11,6 @@ import {
 	Theme,
 	Typography,
 	Divider,
-	ListSubheader,
 } from "@material-ui/core"
 
 import { makeStyles } from "@material-ui/styles"
@@ -31,7 +30,7 @@ let useStyle = makeStyles((theme: Theme) => ({
 		zIndex: 1,
 		position: "relative",
 		paddingTop: "70px",
-		height: "100%",
+		minHeight: "100vh",
 		"&::before": {
 			content: '""',
 			position: "absolute",
@@ -47,7 +46,7 @@ let useStyle = makeStyles((theme: Theme) => ({
 		zIndex: 1,
 		position: "relative",
 		paddingTop: "70px",
-		height: "100%",
+		minHeight: "100vh",
 	},
 	homeContent: {
 		display: "flex",
@@ -95,6 +94,9 @@ let useStyle = makeStyles((theme: Theme) => ({
 	},
 	listCards: {
 		height: "calc(100vh - 400px)",
+		[theme.breakpoints.between("xs", "lg")]: {
+			height: "calc(100vh - 100px)",
+		},
 		overflowY: "scroll",
 		"&::-webkit-scrollbar": {
 			width: "2px",
@@ -728,7 +730,7 @@ const App: React.FC = () => {
 												</Paper>
 											</ListItem>
 											<Divider className={styles.divider} />
-											<ListSubheader disableGutters>
+											<ListItem disableGutters>
 												<Typography
 													variant='body1'
 													component='span'
@@ -736,7 +738,7 @@ const App: React.FC = () => {
 													color='primary'>
 													Контакты
 												</Typography>
-											</ListSubheader>
+											</ListItem>
 											<ListItem disableGutters>
 												<ListItemIcon>
 													<img
@@ -755,14 +757,14 @@ const App: React.FC = () => {
 														marginLeft: "5px",
 													}}>
 													<Typography
-														variant='body1'
+														variant='body2'
 														component='span'
 														style={{ fontWeight: 700, fontSize: "1.125rem" }}
 														color='primary'>
 														Диспетчерская
 													</Typography>
 													<Typography
-														variant='body2'
+														variant='caption'
 														style={{ fontWeight: 700 }}
 														component='span'
 														color='secondary'>
@@ -788,14 +790,14 @@ const App: React.FC = () => {
 														marginLeft: "5px",
 													}}>
 													<Typography
-														variant='body1'
+														variant='body2'
 														style={{ fontWeight: 700, fontSize: "1.125rem" }}
 														component='span'
 														color='primary'>
 														Почта
 													</Typography>
 													<Typography
-														variant='body2'
+														variant='caption'
 														component='span'
 														style={{ fontWeight: 700 }}
 														color='secondary'>
@@ -842,7 +844,7 @@ const App: React.FC = () => {
 						</Grid>
 					</Grid>
 					<Paper
-						style={{ width: "100%", display: "flex", margin: "25px 0" }}
+						style={{ width: "100%", display: "flex", margin: "25px 0 0" }}
 						square
 						elevation={0}>
 						<Button
